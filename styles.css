@@ -4,7 +4,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background-color: white;
     background-image: url('droneimage.jpg');
 }
@@ -34,27 +34,6 @@ h1 {
     width: 100%;
 }
 
-.slider-box, .joystick-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #ccc;
-    padding: 10px;
-    border-radius: 10px;
-    margin: 0 10px;
-    position: relative; /* Ensure the joystick can be positioned in front */
-}
-
-.slider-box {
-    width: 150px; /* Increase width to fit the slider */
-    height: 300px; /* Increase height to fit the slider */
-}
-
-.joystick-box {
-    width: 220px; /* Increase width to fit the joystick */
-    height: 220px; /* Increase height to fit the joystick */
-}
 
 #slider {
     -webkit-appearance: none;
@@ -63,11 +42,32 @@ h1 {
     height: 50px;
     transform: rotate(-90deg); /* Rotate slider to vertical */
     margin-top: 120px;
-    margin-left: -280px;
+    margin-left: -260px;
     border-radius: 50px;
-    background: linear-gradient(to right, #ddd, #aaa);
+    background: linear-gradient(to right,green, orange, yellow, red) ;
     outline: none;
     cursor: pointer;
+}
+
+/* Custom slider thumb */
+#slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 40px;
+    height: 80px;
+    border-radius: 50%;
+    background: black;
+    cursor: pointer;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+#slider::-moz-range-thumb {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
 }
 
 #joystick-container {
@@ -76,7 +76,7 @@ h1 {
     background-color: transparent; /* Transparent background */
     position: absolute; /* Position joystick in front */
     top: 50%; /* Center the joystick vertically */
-    left: 83%; /* Center the joystick horizontally */
+    left: 70%; /* Center the joystick horizontally */
     transform: translate(-50%, -50%); /* Adjust positioning */
     z-index: 10; /* Ensure joystick is on top */
 }
@@ -89,7 +89,7 @@ h1 {
     font-size: 16px;
     border-radius: 20px;
     margin-top: 50px;
-    margin-left: 50px;
+    margin-left: 45px;
 }
 
 #emergency-button {
@@ -101,6 +101,7 @@ h1 {
     cursor: pointer;
     border-radius: 20px;
     margin-top: 50px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 #emergency-button:hover {
@@ -113,6 +114,7 @@ h1 {
     font-size: 20px;
     text-align: left;
     justify-content: left;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
 }
 
@@ -123,5 +125,15 @@ h1 {
     font-size: 20px;
     text-align: right;
     justify-content: right;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
+}
+#slider-value {
+    margin-bottom:-100px;
+    margin-left: 170px;
+    font-size: 18px;
+    color: #333;
+    position: absolute;
+    font-style: italic;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
