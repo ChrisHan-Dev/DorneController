@@ -8,9 +8,19 @@
     <script src="java.js" defer></script>
 </head>
 <body>
-    <div id="controller">
-        <div id="joystick-container"></div>
-        <input placeholder="slider" type="range" id="slider" min="0" max="100" value="50">
+    <div id="app-container">
+        <h1>Drone Controller</h1>
+        <div id="controller">
+
+                <p id="text1">Slider Control</p>
+                <input placeholder="slider" type="range" id="slider" min="0" max="100" value="0">
+
+            <div id="status-box">Disconnected</div>
+
+                <p id="text2">Joystick Control</p>
+                <div id="joystick-container"></div>
+
+        </div>
         <button id="emergency-button">Emergency Stop</button>
     </div>
 </body>

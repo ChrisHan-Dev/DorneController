@@ -1,13 +1,16 @@
 document.addEventListener("DOMContentLoaded", function() {
     // Initialize the joystick
     var joystick = new JoyStick("joystick-container", {
-        internalFillColor: "#00AA00",
-        internalStrokeColor: "#003300",
-        externalStrokeColor: "#008000"
+        internalFillColor: "#0000FF", // Blue color for the joystick
+        internalStrokeColor: "#000099",
+        externalStrokeColor: "#0000FF"
     });
 
-    // Handle slider change
+    // Initialize the slider to 0
     const slider = document.getElementById("slider");
+    slider.value = 0; // Ensure slider starts at 0
+
+    // Handle slider change
     slider.addEventListener("input", function() {
         console.log("Slider value:", slider.value);
         // Placeholder: Send the slider value to the drone
@@ -38,8 +41,8 @@ document.addEventListener("DOMContentLoaded", function() {
 var JoyStick = function(containerId, options) {
     options = options || {};
     var title = options.title || "joystick",
-        width = options.width || 150,
-        height = options.height || 150,
+        width = options.width || 200,
+        height = options.height || 200,
         internalFillColor = options.internalFillColor || "#00AA00",
         internalLineWidth = options.internalLineWidth || 2,
         internalStrokeColor = options.internalStrokeColor || "#003300",
@@ -91,8 +94,18 @@ var JoyStick = function(containerId, options) {
     canvas.addEventListener("mousemove", function(event) {
         if (pressed) {
             var rect = canvas.getBoundingClientRect();
-            knobX = event.clientX - rect.left;
-            knobY = event.clientY - rect.top;
+            var dx = event.clientX - rect.left - centerX;
+            var dy = event.clientY - rect.top - centerY;
+            var distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance > radius) {
+                var angle = Math.atan2(dy, dx);
+                dx = radius * Math.cos(angle);
+                dy = radius * Math.sin(angle);
+            }
+
+            knobX = centerX + dx;
+            knobY = centerY + dy;
             drawJoystick();
         }
     });

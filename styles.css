@@ -3,42 +3,125 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f0f0f0;
     margin: 0;
     font-family: Arial, sans-serif;
+    background-color: white;
+    background-image: url('droneimage.jpg');
 }
 
-#controller {
+#app-container {
+    width: 844px; /* iPhone 13 height in landscape mode */
+    height: 390px; /* iPhone 13 width in landscape mode */
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    background-color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
+    
 }
 
-#joystick-container {
-    width: 150px;
-    height: 150px;
-    margin-bottom: 20px;
+h1 {
+    margin-top: 0;
+}
+
+#controller {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.slider-box, .joystick-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #ccc;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 0 10px;
+    position: relative; /* Ensure the joystick can be positioned in front */
+}
+
+.slider-box {
+    width: 150px; /* Increase width to fit the slider */
+    height: 300px; /* Increase height to fit the slider */
+}
+
+.joystick-box {
+    width: 220px; /* Increase width to fit the joystick */
+    height: 220px; /* Increase height to fit the joystick */
 }
 
 #slider {
-    width: 150px;
-    margin-bottom: 20px;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 30%;
+    height: 50px;
+    transform: rotate(-90deg); /* Rotate slider to vertical */
+    margin-top: 120px;
+    margin-left: -280px;
+    border-radius: 50px;
+    background: linear-gradient(to right, #ddd, #aaa);
+    outline: none;
+    cursor: pointer;
+}
+
+#joystick-container {
+    width: 200px; /* Ensure width */
+    height: 200px; /* Ensure height */
+    background-color: transparent; /* Transparent background */
+    position: absolute; /* Position joystick in front */
+    top: 50%; /* Center the joystick vertically */
+    left: 83%; /* Center the joystick horizontally */
+    transform: translate(-50%, -50%); /* Adjust positioning */
+    z-index: 10; /* Ensure joystick is on top */
+}
+
+#status-box {
+    background-color: grey;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 20px;
+    margin-top: 50px;
+    margin-left: 50px;
 }
 
 #emergency-button {
     background-color: red;
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 20px 50px;
     font-size: 16px;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 20px;
+    margin-top: 50px;
 }
 
 #emergency-button:hover {
     background-color: darkred;
+}
+
+#text1 {
+    margin-top: -150px;
+    margin-left: 50px;
+    font-size: 20px;
+    text-align: left;
+    justify-content: left;
+
+}
+
+#text2 {
+    margin-top: -150px;
+    margin-left: 30px;
+    padding: 50px;
+    font-size: 20px;
+    text-align: right;
+    justify-content: right;
+
 }
